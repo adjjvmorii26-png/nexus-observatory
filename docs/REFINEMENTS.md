@@ -4,8 +4,10 @@
 Shared metrics, resonance bus, quantum attention, recursive self, temporal paradox, consensus mesh, lineage map.
 
 ## Wave 2
-1. Persistent Memory Crystals (JSON + in-memory fallback)
-2. Theme-Tuned Decay Curves (temporal/linguistic/spatial/cognitive/ontological/transformative)
-3. Psalm Generator (metric-driven choir lines)
-4. Live Adapters (sibling project probes)
-5. Orchestrator (full refined cycle)
+Memory crystals, theme decay curves, psalm engine, live (presence) adapters, orchestrator.
+
+## Wave 3
+1. **Exec Adapters** — run sibling cores and fold real metrics into the mesh
+2. **History-Tuned Decay** — adjust rates from crystal history
+3. **Interop CI** — `ci/assert_interop.js` + `ci/run_ci.sh`
+4. **Visualizer Feed** — ASCII heatbars + JSON frames
