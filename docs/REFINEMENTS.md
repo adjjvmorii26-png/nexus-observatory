@@ -1,13 +1,10 @@
 # Refinements
 
-## Wave 1
-Shared metrics, resonance bus, quantum attention, recursive self, temporal paradox, consensus mesh, lineage map.
+## Wave 1–3
+Metrics, bus, experiments, crystals, theme decay, psalms, exec adapters, CI, ASCII viz.
 
-## Wave 2
-Memory crystals, theme decay curves, psalm engine, live (presence) adapters, orchestrator.
-
-## Wave 3
-1. **Exec Adapters** — run sibling cores and fold real metrics into the mesh
-2. **History-Tuned Decay** — adjust rates from crystal history
-3. **Interop CI** — `ci/assert_interop.js` + `ci/run_ci.sh`
-4. **Visualizer Feed** — ASCII heatbars + JSON frames
+## Wave 4
+1. Expanded exec catalog — 28 systems with themes
+2. History seed — multi-run crystals activate tuned=true
+3. Psalm inject — appends to meta_choir voices/echo
+4. HTML visualizer — visualizer/web/index.html

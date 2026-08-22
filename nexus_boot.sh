@@ -2,6 +2,6 @@
 set -e
 cd "$(dirname "$0")"
 echo "══════════════════════════════════════════"
-echo "  NEXUS OBSERVATORY — Wave 3"
+echo "  NEXUS OBSERVATORY — Wave 4"
 echo "══════════════════════════════════════════"
 node orchestrator/run_cycle.js
