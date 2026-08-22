@@ -1,3 +1,4 @@
-# Experimental Innovations
+# Innovations
 
-Quantum Attention, Recursive Self, Temporal Paradox Resolver, Consensus Mesh — cross-cutting experiments above any single poetic system.
+Cross-cutting: Quantum Attention, Recursive Self, Paradox Resolver, Consensus Mesh.
+Persistence: Memory Crystals, Theme Decay, Psalm Engine, Live Adapters, Orchestrator.

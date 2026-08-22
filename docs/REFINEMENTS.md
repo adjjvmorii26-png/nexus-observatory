@@ -1,5 +1,11 @@
 # Refinements
 
-Shared metric schema: strength / entropy / coherence / consensus
-Thresholds: stabilize ≥ 0.62, collapse ≤ 0.28, overload ≥ 0.85
-Resonance bus events: TICK, STABILIZE, COLLAPSE, VOTE, QUANTUM_COLLAPSE, SELF_REWRITE, PARADOX_SUTURE, MESH_VOTE
+## Wave 1
+Shared metrics, resonance bus, quantum attention, recursive self, temporal paradox, consensus mesh, lineage map.
+
+## Wave 2
+1. Persistent Memory Crystals (JSON + in-memory fallback)
+2. Theme-Tuned Decay Curves (temporal/linguistic/spatial/cognitive/ontological/transformative)
+3. Psalm Generator (metric-driven choir lines)
+4. Live Adapters (sibling project probes)
+5. Orchestrator (full refined cycle)

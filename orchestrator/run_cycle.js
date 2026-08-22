@@ -1,0 +1,47 @@
+const crystals = require("../memory_crystals/crystal_store.js");
+const { apply: decayApply } = require("../decay_curves/curves.js");
+const { generate: genPsalm } = require("../psalm_engine/psalm.js");
+const { cycle: probeCycle } = require("../bridge/live_adapters/probe.js");
+const { cycle: qAttn } = require("../experiment/quantum_attention/quantum_attention.js");
+const { cycle: recursive } = require("../experiment/recursive_self/recursive_self.js");
+const { cycle: paradox } = require("../experiment/temporal_paradox/paradox_resolver.js");
+const { cycle: mesh } = require("../experiment/consensus_mesh/consensus_mesh.js");
+const { recent } = require("../resonance_bus/bus.js");
+const lineage = require("../lineage_map/map.js");
+function run(ticks = 3) {
+  console.log("NEXUS ORCHESTRATOR — refined cycle");
+  console.log(`Systems in lineage: ${lineage.count()}\n`);
+  console.log("▸ Live Adapters");
+  const probe = probeCycle(0);
+  console.log("\n▸ Quantum Attention");
+  let lastQ; for (let t = 0; t < ticks; t++) lastQ = qAttn(t);
+  console.log("\n▸ Recursive Self");
+  let lastR; for (let t = 0; t < ticks; t++) lastR = recursive(t);
+  console.log("\n▸ Temporal Paradox");
+  let lastP; for (let t = 0; t < ticks; t++) lastP = paradox(t);
+  console.log("\n▸ Consensus Mesh");
+  let lastM; for (let t = 0; t < ticks; t++) lastM = mesh(t);
+  console.log("\n▸ Theme Decay");
+  const themeMap = { "attention-labyrinth": "cognitive", "quietus-array": "ontological", "metamorph-forge": "transformative", "probability-engine": "temporal", "chronovore-archive": "temporal", "neuroglyph-forge": "cognitive" };
+  const decayed = [];
+  (probe.results || []).forEach(r => {
+    const theme = themeMap[r.name] || "default";
+    const after = decayApply(r.metrics, theme, 1);
+    decayed.push({ name: r.name, theme, ...after });
+    console.log(`  ${r.name.padEnd(22)} ${theme.padEnd(14)} str=${after.strength} ent=${after.entropy}`);
+  });
+  console.log("\n▸ Memory Crystals");
+  crystals.seal("nexus_last_cycle", { strength: lastR?.avg ?? 0.7, entropy: lastQ?.entropy ?? 0.3, coherence: probe.avgStrength ?? 0.6, consensus: lastM?.consensus ?? 0.5 }, { decision: lastM?.decision, paradoxes: lastP?.detected, live: probe.live });
+  decayed.forEach(d => crystals.seal(`sys_${d.name}`, { strength: d.strength, entropy: d.entropy, coherence: d.coherence, consensus: d.consensus }, { theme: d.theme, label: d.label }));
+  const sum = crystals.summary();
+  console.log(`  sealed ${sum.count} crystals  avg_str=${sum.avgStrength}  avg_ent=${sum.avgEntropy}`);
+  console.log("\n▸ Psalms");
+  const psalm = genPsalm({ strength: lastR?.avg ?? 0.7, entropy: lastQ?.entropy ?? 0.3, consensus: lastM?.consensus ?? 0.5 }, lastM?.decision);
+  console.log(`  ${psalm.agent}: "${psalm.line}"`);
+  console.log("\n▸ Resonance Bus (last 6)");
+  recent(6).forEach(e => console.log(`  ${e.event}`, JSON.stringify(e.payload).slice(0, 70)));
+  console.log("\nOrchestrator cycle complete.\n");
+  return { probe, quantum: lastQ, recursive: lastR, paradox: lastP, mesh: lastM, crystals: sum, psalm };
+}
+module.exports = { run };
+if (require.main === module) run(3);

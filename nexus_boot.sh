@@ -2,6 +2,6 @@
 set -e
 cd "$(dirname "$0")"
 echo "══════════════════════════════════════════"
-echo "  NEXUS OBSERVATORY — lineage awakening"
+echo "  NEXUS OBSERVATORY — refined lineage"
 echo "══════════════════════════════════════════"
-node interfaces/nexus_terminal.js
+node orchestrator/run_cycle.js
