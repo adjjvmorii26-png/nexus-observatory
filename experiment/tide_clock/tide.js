@@ -4,7 +4,15 @@ function envelope(p) { return 0.7 + 0.45 * (0.5 + 0.5 * Math.sin(p * Math.PI * 2
 function apply(metrics, tick, period = 8) {
   const p = phase(tick, period);
   const env = envelope(p);
-  const out = { strength: Math.max(0.05, Math.min(0.99, (metrics.strength ?? 0.5) * env)), entropy: Math.max(0.05, Math.min(0.99, (metrics.entropy ?? 0.3) * (2 - env))), coherence: metrics.coherence ?? 0.6, consensus: metrics.consensus ?? 0.5, tide: +env.toFixed(3), phase: +p.toFixed(3) };
+  const out = {
+    ...metrics,
+    strength: +Math.max(0.05, Math.min(0.99, (metrics.strength ?? 0.5) * env)).toFixed(4),
+    entropy: +Math.max(0.05, Math.min(0.99, (metrics.entropy ?? 0.3) * (2 - env))).toFixed(4),
+    coherence: metrics.coherence ?? 0.6,
+    consensus: metrics.consensus ?? 0.5,
+    tide: +env.toFixed(3),
+    phase: +p.toFixed(3)
+  };
   publish("TIDE", { phase: out.phase, envelope: out.tide });
   return out;
 }

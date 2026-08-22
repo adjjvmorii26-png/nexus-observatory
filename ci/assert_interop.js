@@ -10,26 +10,46 @@ function assertShape(metrics, name) {
   });
   return errors;
 }
+function smokeCreative() {
+  const errors = [];
+  const mods = [
+    ["dream", () => require("../experiment/dream_buffer/dream_buffer.js").cycle(0)],
+    ["oracle", () => require("../experiment/oracle_die/oracle.js").cycle(0)],
+    ["tide", () => require("../experiment/tide_clock/tide.js").cycle(0)],
+    ["garden", () => require("../experiment/entropy_garden/garden.js").cycle(0)],
+    ["chord", () => require("../experiment/resonance_chord/chord.js").cycle(0)],
+    ["liminal", () => { const g = require("../experiment/liminal_gate/gate.js"); g.reset(); return g.cycle(0); }],
+    ["dissent", () => require("../experiment/choir_dissonance/dissonance.js").cycle(0)],
+    ["compost", () => require("../experiment/collapse_compost/compost.js").cycle(0)],
+    ["palimpsest", () => require("../experiment/palimpsest/palimpsest.js").cycle(0)],
+    ["myth", () => require("../experiment/myth_weaver/myth.js").cycle(0)]
+  ];
+  mods.forEach(([name, fn]) => {
+    try { fn(); console.log(`  PASS  creative/${name}`); }
+    catch (e) { errors.push(`creative/${name}: ${e.message}`); console.log(`  FAIL  creative/${name} — ${e.message}`); }
+  });
+  return errors;
+}
 function run() {
-  console.log("NEXUS CI — interop assertions");
+  console.log("NEXUS CI — interop + creative smoke");
   console.log(`Lineage count: ${lineage.count()}\n`);
-  const results = execAll();
-  let failures = [];
-  let passes = 0;
+  const results = execAll(["attention-labyrinth", "quietus-array", "metamorph-forge", "chronovore-archive", "neuroglyph-forge", "semiotic-engine"]);
+  let failures = []; let passes = 0;
+  console.log("▸ Exec shape");
   results.forEach(r => {
     const errs = assertShape(r.metrics, r.name);
     if (!r.ok) errs.push(`${r.name}: exec failed (${r.source})`);
-    if (errs.length) { failures = failures.concat(errs); console.log(`  FAIL  ${r.name}`); errs.forEach(e => console.log(`        ${e}`)); }
-    else { passes++; console.log(`  PASS  ${r.name}  str=${r.metrics.strength.toFixed(3)} ent=${r.metrics.entropy.toFixed(3)}`); }
+    if (errs.length) { failures = failures.concat(errs); console.log(`  FAIL  ${r.name}`); }
+    else { passes++; console.log(`  PASS  ${r.name}  str=${r.metrics.strength.toFixed(3)}`); }
   });
-  const id = normalize({ strength: 0.5, entropy: 0.5 });
-  if (id.strength !== 0.5) failures.push("normalize identity broken");
+  if (normalize({ strength: 0.5 }).strength !== 0.5) failures.push("normalize identity");
   if (clamp(2) !== 1 || clamp(-1) !== 0) failures.push("clamp broken");
-  console.log(`\n  ${passes}/${results.length} systems passed`);
-  console.log(`  ${failures.length} failure(s)`);
+  console.log("\n▸ Creative smoke");
+  failures = failures.concat(smokeCreative());
+  console.log(`\n  exec ${passes}/${results.length}  failures=${failures.length}`);
   if (failures.length) { console.log("\nCI FAILED"); process.exitCode = 1; }
   else console.log("\nCI PASSED");
   return { passes, total: results.length, failures };
 }
-module.exports = { run, assertShape };
+module.exports = { run, assertShape, smokeCreative };
 if (require.main === module) run();

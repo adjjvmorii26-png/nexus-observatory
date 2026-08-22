@@ -1,7 +1,11 @@
-# Refinements & Experiments
+# Refinements
 
-Waves 1–4: interop, crystals, decay, psalms, exec, CI, visualizer.
+## Waves 1–4 + Creative
+Interop, crystals, decay, psalms, exec, CI, visualizer, 13 creative modules.
 
-Creative (integrated into orchestrator): oracle biases consensus, tide envelopes decay, dreams contaminate exec averages, dissonance can flip votes, myths seal the cycle.
-
-New modules: Tide Clock, Collapse Compost, Liminal Gate, Choir Dissonance, Palimpsest.
+## Wave 5
+1. Cycle Report — reports/report.js → JSON + markdown snapshots
+2. Metrics Export — metrics_export/latest.json for visualizer
+3. Tide preserves tuned/theme fields
+4. Archaeology → Compost wired in orchestrator
+5. Expanded CI — exec shape + creative smoke tests
