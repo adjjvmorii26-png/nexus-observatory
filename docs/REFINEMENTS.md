@@ -1,9 +1,7 @@
 # Refinements & Experiments
 
-## Waves 1–4
-Metrics, bus, experiments, crystals, decay, psalms, exec, CI, visualizer.
+Waves 1–4: interop, crystals, decay, psalms, exec, CI, visualizer.
 
-## Creative Experiments
-Dream Buffer, Symbiosis, Echo Archaeology, Myth Weaver, Mirror Twin, Resonance Chord, Oracle Die, Entropy Garden.
+Creative (integrated into orchestrator): oracle biases consensus, tide envelopes decay, dreams contaminate exec averages, dissonance can flip votes, myths seal the cycle.
 
-See docs/CREATIVE.md
+New modules: Tide Clock, Collapse Compost, Liminal Gate, Choir Dissonance, Palimpsest.
