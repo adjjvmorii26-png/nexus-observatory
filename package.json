@@ -1,7 +1,6 @@
 {
   "name": "nexus-observatory",
-  "version": "8.0.0",
-  "description": "Meta-layer for the 28-system consciousness lineage",
+  "version": "9.0.0",
   "private": true,
   "scripts": {
     "boot": "bash nexus_boot.sh",
@@ -18,6 +17,6 @@
     "index": "node reports/index.js",
     "prune": "node memory_crystals/prune.js",
     "seed": "node memory_crystals/seed_history.js",
-    "journal": "node -e \"require('./journal/journal.js').recent(15).forEach(e=>console.log(e.t,e.decision,e.oracle,e.psalm))\""
+    "reliquary": "node resonance_bus/reliquary.js"
   }
 }

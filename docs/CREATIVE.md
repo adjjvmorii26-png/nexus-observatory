@@ -1,18 +1,20 @@
 # Creative Experiments
 
-## Original
-Dream Buffer, Symbiosis, Echo Archaeology, Myth Weaver, Mirror Twin, Resonance Chord, Oracle Die, Entropy Garden
+## Core
+Dream, Symbiosis, Archaeology, Myth, Mirror, Chord, Oracle, Garden
 
-## New
+## Extended
+Tide, Compost, Liminal, Dissonance, Palimpsest
+
+## Wave 9
 | Module | Idea |
 |--------|------|
-| Tide Clock | Global sine envelope on strength/entropy |
-| Collapse Compost | Echoes become garden fuel |
-| Liminal Gate | Events on strength crossing 0.5 |
-| Choir Dissonance | Minority agent flips vote |
-| Palimpsest | Overwrite metrics; underlayer bleeds back |
+| Gravity Well | Strong nodes pull coherence from weak neighbors |
+| Cascade Fail | Collapse shocks neighbors' entropy |
+| Chrono Bookmark | Snapshot and restore metrics |
+| Faction Swarm | Faction-cohesion voting |
+| Signal Reliquary | Persist bus events to disk |
 
 ```bash
-node experiment/creative_cycle.js
-./nexus_boot.sh
+npm run creative
 ```
