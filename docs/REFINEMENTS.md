@@ -1,10 +1,13 @@
 # Refinements
 
-## Waves 1–5 + Creative
-Interop, crystals, decay, psalms, exec, CI, visualizer, 13 creative modules, reports, metrics export.
+## Waves 1–6 + Creative
+Interop, crystals, decay, psalms, exec, CI, visualizer, 13 creative modules, reports, export, multi-cycle, dashboard.
 
-## Wave 6
-1. Multi-cycle runner — `node orchestrator/multi_cycle.js [N]`
-2. CLI dashboard — `node cli/dashboard.js`
-3. Visualizer reload — loads metrics_export/latest.json
-4. Boot seeds history crystals before cycle
+## Wave 7
+1. Quiet cycle — `npm run quiet`
+2. Report compare — `npm run compare`
+3. Crystal prune — `npm run prune` (safe purge API)
+4. Theme aggregate — `npm run themes`
+5. package.json scripts
+6. Atomic crystal store + backup path
+7. Batched history seed

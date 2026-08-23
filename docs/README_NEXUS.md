@@ -1,17 +1,32 @@
 # NEXUS OBSERVATORY
 
-**Meta-layer for the 28-system consciousness lineage**
+Meta-layer for the **28-system consciousness lineage**.
 
-## Innovations
-1. Interop Protocol — shared metrics
-2. Resonance Bus — event pub/sub
-3. Quantum Attention — superposition collapse
-4. Recursive Self — agents rewrite strength
-5. Temporal Paradox Resolver
-6. Consensus Mesh — multi-system vote
-7. Lineage Map — 28 systems by theme
+## Quick start
 
-## Quick Start
 ```bash
-chmod +x nexus_boot.sh && ./nexus_boot.sh
+npm run boot          # seed history + full cycle
+npm run quiet         # cycle with one-block summary
+npm run dashboard     # crystals / report / export status
+npm run ci            # interop + creative smoke tests
 ```
+
+## Commands
+
+| Script | Purpose |
+|--------|---------|
+| `npm run boot` | Seed crystals + full orchestrator cycle |
+| `npm run cycle` | Full verbose cycle |
+| `npm run quiet` | Quiet summary-only cycle |
+| `npm run multi` | Multi-cycle trail (`npm run multi -- 3`) |
+| `npm run dashboard` | Status snapshot |
+| `npm run themes` | Metrics averaged by theme |
+| `npm run creative` | All 13 creative experiments |
+| `npm run compare` | Diff two latest cycle reports |
+| `npm run prune` | Trim old `hist_*` crystals |
+| `npm run seed` | Reseed history crystals |
+| `npm run ci` | Interop + creative CI |
+
+## Visualizer
+
+Open `visualizer/web/index.html` (serve repo root so `metrics_export/latest.json` can load).
