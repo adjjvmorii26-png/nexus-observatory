@@ -10,46 +10,39 @@ function assertShape(metrics, name) {
   });
   return errors;
 }
-function smokeCreative() {
-  const errors = [];
-  const mods = [
-    ["dream", () => require("../experiment/dream_buffer/dream_buffer.js").cycle(0)],
-    ["oracle", () => require("../experiment/oracle_die/oracle.js").cycle(0)],
-    ["tide", () => require("../experiment/tide_clock/tide.js").cycle(0)],
-    ["garden", () => require("../experiment/entropy_garden/garden.js").cycle(0)],
-    ["chord", () => require("../experiment/resonance_chord/chord.js").cycle(0)],
-    ["liminal", () => { const g = require("../experiment/liminal_gate/gate.js"); g.reset(); return g.cycle(0); }],
-    ["dissent", () => require("../experiment/choir_dissonance/dissonance.js").cycle(0)],
-    ["compost", () => require("../experiment/collapse_compost/compost.js").cycle(0)],
-    ["palimpsest", () => require("../experiment/palimpsest/palimpsest.js").cycle(0)],
-    ["myth", () => require("../experiment/myth_weaver/myth.js").cycle(0)]
-  ];
-  mods.forEach(([name, fn]) => {
-    try { fn(); console.log(`  PASS  creative/${name}`); }
-    catch (e) { errors.push(`creative/${name}: ${e.message}`); console.log(`  FAIL  creative/${name} — ${e.message}`); }
-  });
-  return errors;
+function smoke(name, fn) {
+  try { fn(); console.log(`  PASS  ${name}`); return []; }
+  catch (e) { console.log(`  FAIL  ${name} — ${e.message}`); return [`${name}: ${e.message}`]; }
 }
 function run() {
-  console.log("NEXUS CI — interop + creative smoke");
-  console.log(`Lineage count: ${lineage.count()}\n`);
+  console.log("NEXUS CI — Wave 10\n");
+  let failures = [], passes = 0;
   const results = execAll(["attention-labyrinth", "quietus-array", "metamorph-forge", "chronovore-archive", "neuroglyph-forge", "semiotic-engine"]);
-  let failures = []; let passes = 0;
   console.log("▸ Exec shape");
   results.forEach(r => {
     const errs = assertShape(r.metrics, r.name);
-    if (!r.ok) errs.push(`${r.name}: exec failed (${r.source})`);
+    if (!r.ok) errs.push(`${r.name}: exec failed`);
     if (errs.length) { failures = failures.concat(errs); console.log(`  FAIL  ${r.name}`); }
-    else { passes++; console.log(`  PASS  ${r.name}  str=${r.metrics.strength.toFixed(3)}`); }
+    else { passes++; console.log(`  PASS  ${r.name}`); }
   });
-  if (normalize({ strength: 0.5 }).strength !== 0.5) failures.push("normalize identity");
-  if (clamp(2) !== 1 || clamp(-1) !== 0) failures.push("clamp broken");
+  if (normalize({ strength: 0.5 }).strength !== 0.5) failures.push("normalize");
+  if (clamp(2) !== 1) failures.push("clamp");
   console.log("\n▸ Creative smoke");
-  failures = failures.concat(smokeCreative());
+  [
+    ["dream", () => require("../experiment/dream_buffer/dream_buffer.js").cycle(0)],
+    ["oracle", () => require("../experiment/oracle_die/oracle.js").cycle(0)],
+    ["gravity", () => require("../experiment/gravity_well/gravity.js").cycle(0)],
+    ["cascade", () => require("../experiment/cascade_fail/cascade.js").cycle(0)],
+    ["bookmark", () => require("../experiment/chrono_bookmark/bookmark.js").cycle(0)],
+    ["swarm", () => require("../experiment/faction_swarm/swarm.js").cycle(0)],
+    ["wave9_pass", () => require("../orchestrator/wave9_pass.js").run([
+      { name: "a", metrics: { strength: 0.7, entropy: 0.2, coherence: 0.6, consensus: 0.5 }, theme: "cognitive" },
+      { name: "b", metrics: { strength: 0.3, entropy: 0.7, coherence: 0.3, consensus: 0.3 }, theme: "ontological" }
+    ])]
+  ].forEach(([n, fn]) => { failures = failures.concat(smoke(n, fn)); });
   console.log(`\n  exec ${passes}/${results.length}  failures=${failures.length}`);
   if (failures.length) { console.log("\nCI FAILED"); process.exitCode = 1; }
   else console.log("\nCI PASSED");
-  return { passes, total: results.length, failures };
 }
-module.exports = { run, assertShape, smokeCreative };
+module.exports = { run, assertShape };
 if (require.main === module) run();

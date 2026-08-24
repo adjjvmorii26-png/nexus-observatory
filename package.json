@@ -1,6 +1,6 @@
 {
   "name": "nexus-observatory",
-  "version": "9.0.0",
+  "version": "10.0.0",
   "private": true,
   "scripts": {
     "boot": "bash nexus_boot.sh",
@@ -11,12 +11,14 @@
     "dashboard": "node cli/dashboard.js",
     "themes": "node cli/themes.js",
     "health": "node cli/health.js",
+    "status": "node metrics_export/status.js",
     "creative": "node experiment/creative_cycle.js",
     "ci": "node ci/assert_interop.js",
     "compare": "node reports/compare.js",
     "index": "node reports/index.js",
     "prune": "node memory_crystals/prune.js",
     "seed": "node memory_crystals/seed_history.js",
-    "reliquary": "node resonance_bus/reliquary.js"
+    "reliquary": "node resonance_bus/reliquary.js",
+    "wave9": "node orchestrator/wave9_pass.js"
   }
 }

@@ -1,20 +1,16 @@
-# NEXUS OBSERVATORY v9
-
-Meta-layer for the **28-system consciousness lineage**.
+# NEXUS OBSERVATORY v10
 
 ```bash
 npm run seed && npm run quiet
-npm run health
-npm run creative
+npm run health && npm run status
+npm run creative && npm run ci
 ```
 
-## Scripts
-| Command | Purpose |
-|---------|--------|
-| `npm run quiet` | Summary cycle + journal + index |
-| `npm run creative` | All creative experiments (Wave 9) |
+| Script | Purpose |
+|--------|--------|
+| `npm run quiet` | Cycle + journal + index + reliquary + status |
+| `npm run wave9` | Gravity / cascade / swarm pass |
+| `npm run status` | Write status.json |
+| `npm run creative` | All creative experiments |
 | `npm run health` | Health check |
-| `npm run watch` | Interval cycles |
-| `npm run dashboard` | Status |
-| `npm run ci` | Interop CI |
-| `npm run reliquary` | Persist bus events |
+| `npm run ci` | Interop + creative CI |
