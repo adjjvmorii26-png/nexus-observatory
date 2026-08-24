@@ -1,0 +1,49 @@
+name: Nexus CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: "0 13 * * *"
+  workflow_dispatch:
+
+jobs:
+  interop:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Seed history crystals
+        run: node memory_crystals/seed_history.js || true
+      - name: Interop + creative CI
+        run: node ci/assert_interop.js
+      - name: Wave 9 pass smoke
+        run: node orchestrator/wave9_pass.js
+      - name: Status export
+        run: node metrics_export/status.js || true
+      - name: Upload status artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nexus-status
+          path: |
+            metrics_export/status.json
+            reports/INDEX.md
+          if-no-files-found: ignore
+
+  creative:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Creative cycle
+        run: node experiment/creative_cycle.js
+      - name: Reliquary seal
+        run: node resonance_bus/reliquary.js || true
