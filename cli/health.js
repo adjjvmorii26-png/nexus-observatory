@@ -14,12 +14,12 @@ function check() {
   ok.push(`lineage ${lineage.count()} systems`);
   ok.push(`exec available ${available().length}`);
   const sum = crystals.summary();
-  if (sum.count === 0) issues.push("no crystals"); else ok.push(`crystals ${sum.count}`);
+  if (sum.count === 0) ok.push("crystals cold start"); else ok.push(`crystals ${sum.count}`);
   const rep = latest();
-  if (!rep) issues.push("no reports"); else ok.push(`report ${rep.id}`);
+  if (!rep) ok.push("report cold start"); else ok.push(`report ${rep.id}`);
   ok.push(`archive ${listReports().length}`);
   const frame = loadExport();
-  if (!frame?.systems?.length) issues.push("no export"); else ok.push(`export ${frame.systems.length}`);
+  if (!frame?.systems?.length) ok.push("export cold start"); else ok.push(`export ${frame.systems.length}`);
   console.log("NEXUS HEALTH\n");
   ok.forEach(l => console.log("  ✓", l));
   issues.forEach(l => console.log("  ✗", l));
