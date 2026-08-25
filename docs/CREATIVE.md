@@ -1,20 +1,15 @@
 # Creative Experiments
 
-## Core
-Dream, Symbiosis, Archaeology, Myth, Mirror, Chord, Oracle, Garden
-
-## Extended
-Tide, Compost, Liminal, Dissonance, Palimpsest
-
-## Wave 9
-| Module | Idea |
-|--------|------|
-| Gravity Well | Strong nodes pull coherence from weak neighbors |
-| Cascade Fail | Collapse shocks neighbors' entropy |
-| Chrono Bookmark | Snapshot and restore metrics |
-| Faction Swarm | Faction-cohesion voting |
-| Signal Reliquary | Persist bus events to disk |
+## Wave 11
+| Module | Idea | Bus |
+|--------|------|-----|
+| Entropy Diffraction | High entropy refracts into same-theme peers | DIFFRACT |
+| Coherence Lattice | Similar-strength nodes bond and lift coherence | LATTICE |
+| Null Baptism | Ritual zero of a metric + recovery curve | BAPTISM |
+| Echo Ledger | Double-entry book for metric transfers | LEDGER_OK / LEDGER_DRIFT |
+| Phase Lock Choir | Phase alignment boosts consensus | PHASE_LOCK |
 
 ```bash
 npm run creative
+npm run wave11
 ```

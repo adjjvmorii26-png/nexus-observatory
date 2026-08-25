@@ -1,6 +1,6 @@
 {
   "name": "nexus-observatory",
-  "version": "10.1.0",
+  "version": "11.0.0",
   "private": true,
   "scripts": {
     "boot": "bash nexus_boot.sh",
@@ -20,6 +20,7 @@
     "seed": "node memory_crystals/seed_history.js",
     "reliquary": "node resonance_bus/reliquary.js",
     "wave9": "node orchestrator/wave9_pass.js",
+    "wave11": "node orchestrator/wave11_pass.js",
     "auto:daily": "bash scripts/automate_daily.sh",
     "auto:weekly": "bash scripts/automate_weekly.sh",
     "auto:watch": "bash scripts/automate_watch.sh"

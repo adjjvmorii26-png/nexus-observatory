@@ -14,15 +14,21 @@ const mods = [
   ["Gravity Well", "./gravity_well/gravity.js"],
   ["Cascade Fail", "./cascade_fail/cascade.js"],
   ["Chrono Bookmark", "./chrono_bookmark/bookmark.js"],
-  ["Faction Swarm", "./faction_swarm/swarm.js"]
+  ["Faction Swarm", "./faction_swarm/swarm.js"],
+  ["Entropy Diffraction", "./entropy_diffraction/diffraction.js"],
+  ["Coherence Lattice", "./coherence_lattice/lattice.js"],
+  ["Null Baptism", "./null_baptism/baptism.js"],
+  ["Echo Ledger", "./echo_ledger/ledger.js"],
+  ["Phase Lock Choir", "./phase_lock_choir/choir.js"]
 ];
 function run(ticks = 2) {
-  console.log("CREATIVE EXPERIMENTS (Wave 9)\n");
+  console.log("CREATIVE EXPERIMENTS (Wave 11)\n");
   for (const [label, rel] of mods) {
     console.log(`▸ ${label}`);
     try {
       const mod = require(rel);
       if (label === "Liminal Gate" && mod.reset) mod.reset();
+      if (label === "Null Baptism" && mod.state) mod.state.clear();
       for (let t = 0; t < ticks; t++) mod.cycle(t);
     } catch (e) { console.log(`  FAIL: ${e.message}`); }
     console.log();
