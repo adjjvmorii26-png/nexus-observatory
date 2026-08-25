@@ -1,15 +1,14 @@
 # Creative Experiments
 
-## Wave 11
+## Wave 12
 | Module | Idea | Bus |
 |--------|------|-----|
-| Entropy Diffraction | High entropy refracts into same-theme peers | DIFFRACT |
-| Coherence Lattice | Similar-strength nodes bond and lift coherence | LATTICE |
-| Null Baptism | Ritual zero of a metric + recovery curve | BAPTISM |
-| Echo Ledger | Double-entry book for metric transfers | LEDGER_OK / LEDGER_DRIFT |
-| Phase Lock Choir | Phase alignment boosts consensus | PHASE_LOCK |
+| Metric Parasite | Guest feeds on host strength until starve/detach | PARASITE_FEED / DETACH |
+| Temporal Fold | Blend past and present metric frames | TEMPORAL_FOLD |
+| Consensus Fog | Boundary votes become stochastic | CONSENSUS_FOG |
+| Sigil Anchor | Named fixed points resist decay for TTL | SIGIL_PLANT / HOLD / FADE |
+| Harmonic Interference | Phase waves lift or lower coherence | INTERFERE |
 
 ```bash
-npm run creative
-npm run wave11
+npm run creative && npm run wave12
 ```
