@@ -1,6 +1,6 @@
 {
   "name": "nexus-observatory",
-  "version": "12.0.0",
+  "version": "13.0.0",
   "private": true,
   "scripts": {
     "boot": "bash nexus_boot.sh",
@@ -11,6 +11,7 @@
     "dashboard": "node cli/dashboard.js",
     "themes": "node cli/themes.js",
     "health": "node cli/health.js",
+    "doctor": "node cli/doctor.js",
     "status": "node metrics_export/status.js",
     "creative": "node experiment/creative_cycle.js",
     "ci": "node ci/assert_interop.js",
@@ -22,6 +23,7 @@
     "wave9": "node orchestrator/wave9_pass.js",
     "wave11": "node orchestrator/wave11_pass.js",
     "wave12": "node orchestrator/wave12_pass.js",
+    "wave": "node orchestrator/unified_wave_pass.js",
     "auto:daily": "bash scripts/automate_daily.sh",
     "auto:weekly": "bash scripts/automate_weekly.sh",
     "auto:watch": "bash scripts/automate_watch.sh"
