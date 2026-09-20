@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-20T00:00:00Z",
+  "repositories": [
+    {
+      "name": "ixpansion",
+      "role": "organism-core",
+      "maturity": "established",
+      "visibility": "public",
+      "branch": "main",
+      "health": "inferred",
+      "links": ["https://github.com/adjjvmorii26-png/ixpansion"]
+    },
+    {
+      "name": "nexus-observatory",
+      "role": "observability-meta-layer",
+      "maturity": "established",
+      "visibility": "public",
+      "branch": "main",
+      "health": "verified",
+      "links": ["https://github.com/adjjvmorii26-png/nexus-observatory"]
+    },
+    {
+      "name": "codexskills",
+      "role": "agent-control-plane",
+      "maturity": "foundational",
+      "visibility": "private",
+      "branch": "master",
+      "health": "verified",
+      "links": ["https://github.com/adjjvmorii26-png/codexskills"]
+    }
+  ]
+}
