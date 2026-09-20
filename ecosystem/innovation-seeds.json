@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "wave": 14,
+  "seeds": [
+    {"id":"bridge-compiler","targets":["interstice","nexus-observatory","ixpansion"],"risk":"medium"},
+    {"id":"temporal-replay-chamber","targets":["chronocrypt-orrery","nexus-observatory","pentaxis-5d-engine"],"risk":"medium"},
+    {"id":"forgetting-budget","targets":["antimemetic-architecton","nexus-observatory"],"risk":"medium"},
+    {"id":"phase-shifting-workloads","targets":["phaseshift-manifold","workforce-"],"risk":"high"},
+    {"id":"echo-parliament-tournament","targets":["polychron-atlas","feature-1.3-mesh-hitl-si"],"risk":"medium"},
+    {"id":"resonance-market","targets":["interstice","nexus-observatory"],"risk":"medium"},
+    {"id":"shatter-suture-fault-lab","targets":["luminant-reliquary","chronocrypt-orrery","aegis-workspace"],"risk":"high"},
+    {"id":"waveform-memory","targets":["echotide-engine","nexus-observatory"],"risk":"medium"},
+    {"id":"five-dimensional-state-probes","targets":["pentaxis-5d-engine","nexus-observatory"],"risk":"low"},
+    {"id":"organism-migration-game","targets":["ixpansion","codexskills"],"risk":"medium"},
+    {"id":"anti-memetic-canary","targets":["antimemetic-architecton","aegis-workspace","codexskills"],"risk":"high"},
+    {"id":"living-repository-genome","targets":["codexskills","nexus-observatory"],"risk":"low"}
+  ]
+}
