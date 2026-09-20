@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Nexus Ecosystem Snapshot",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "repositories"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "repositories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "role", "maturity"],
+        "properties": {
+          "name": {"type": "string"},
+          "role": {"type": "string"},
+          "maturity": {"enum": ["foundational", "established", "experimental", "quarantined", "archived"]},
+          "visibility": {"enum": ["public", "private"]},
+          "branch": {"type": "string"},
+          "health": {"enum": ["verified", "inferred", "unknown", "attention"]},
+          "links": {"type": "array", "items": {"type": "string", "format": "uri"}}
+        }
+      }
+    }
+  }
+}

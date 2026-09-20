@@ -1,0 +1,27 @@
+name: Ecosystem Pulse
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  pulse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run deterministic pulse
+        run: |
+          node ecosystem/health-pulse.mjs ecosystem/snapshot.example.json > ecosystem/pulse.json
+          node -e "JSON.parse(require('fs').readFileSync('ecosystem/pulse.json','utf8')); console.log('pulse JSON valid')"
+
+      - name: Upload pulse
+        uses: actions/upload-artifact@v4
+        with:
+          name: ecosystem-pulse
+          path: ecosystem/pulse.json
+          retention-days: 14
