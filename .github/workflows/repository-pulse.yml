@@ -1,0 +1,23 @@
+name: repository-pulse
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate Repository Pulse
+        run: node ci/assert_repository_pulse.js
+
+      - name: Exercise Repository Pulse adapter
+        run: node ecosystem/repository-pulse.mjs ecosystem/repository-pulse.example.json
