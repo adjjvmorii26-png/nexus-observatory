@@ -1,0 +1,11 @@
+{
+  "repository": "adjjvmorii26-png/example-repository",
+  "commit": "0000000000000000000000000000000000000000",
+  "capabilities": ["example-capability"],
+  "changed_surfaces": ["example/surface"],
+  "validation": ["example-validation"],
+  "deployment_requirements": ["none"],
+  "open_experiments": [],
+  "uncertainties": ["example uncertainty"],
+  "human_gates": ["human review before promotion"]
+}
